@@ -34,7 +34,7 @@ export default function HomePage() {
                                 <div key={movie.id} className="col" >
                                     <div className="card h-100">
                                         <Link to={`/movie/${movie.id}`} className="text-decoration-none text-dark">
-                                            <img src={`http://localhost:3000/${movie.image}`} className="card-img-top" alt="" />
+                                            {movie.image && <img src={movie.image} className="card-img-top" alt={movie.title} />}
                                         </Link>
                                         <div className="card-body">
                                             <h3>{movie.title}</h3>
