@@ -22,10 +22,16 @@ export default function SingleMovie() {
 
             <div className="p-5 mb-4 bg-light rounded-3">
                 <div className="container-fluid py-5">
-                    <h1 className="display-5 fw-bold">{movie?.title && movie.title}</h1>
-                    <p className="col-md-8 fs-4">
-                        {movie?.abstract && movie.abstract}
-                    </p>
+                    <div className="row">
+                        <h1 className="display-5 fw-bold">{movie?.title && movie.title}</h1>
+                        <p className="col-md-8 fs-4">
+                            {movie?.abstract && movie.abstract}
+                        </p>
+                        <div className="col-4">
+                            <img src={`http://localhost:3000/${movie.image}`} width={250} alt="" />
+                        </div>
+
+                    </div>
                 </div>
             </div>
             {

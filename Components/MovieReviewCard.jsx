@@ -6,10 +6,10 @@ export default function MovieReviewCard({ userReview }) {
         const empty = []
 
         for (let i = 0; i < vote; i++) {
-            stars.push(<i key={i} className="bi bi-star-fill"></i>)
+            stars.push(<i key={`star filled - ${i}`} className="bi bi-star-fill"></i>)
         }
         for (let i = 0; i < 5 - vote; i++) {
-            empty.push(<i key={i} className="bi bi-star"></i>)
+            empty.push(<i key={`star empty - ${i}`} className="bi bi-star"></i>)
         }
         return [...stars, ...empty]
     }

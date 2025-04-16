@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
@@ -31,8 +32,10 @@ export default function HomePage() {
                         {
                             movies.map(movie => (
                                 <div key={movie.id} className="col" >
-                                    <div className="card">
-                                        <img src={movie.image} alt="" />
+                                    <div className="card h-100">
+                                        <Link to={`/movie/${movie.id}`} className="text-decoration-none text-dark">
+                                            <img src={`http://localhost:3000/${movie.image}`} className="card-img-top" alt="" />
+                                        </Link>
                                         <div className="card-body">
                                             <h3>{movie.title}</h3>
                                             <p>{movie.director}</p>
