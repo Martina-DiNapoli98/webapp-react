@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
+import DefaultLayout from "../layouts/DefaultLayout"
 function App() {
 
   return (

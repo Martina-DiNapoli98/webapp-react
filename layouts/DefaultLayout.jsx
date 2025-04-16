@@ -1,9 +1,14 @@
-export function DefaultLayout() {
+import { Outlet } from "react-router-dom";
+
+
+export default function DefaultLayout() {
     return (
         <>
-            <Hedaer></Hedaer>
-            <Main></Main>
-            <Footer></Footer>
+            <header>HEADER</header>
+            <main>
+                <Outlet />
+            </main>
+            <footer>FOOTER</footer>
         </>
     )
 }
