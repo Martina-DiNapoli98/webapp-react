@@ -31,7 +31,7 @@ export default function MovieReviewCard({ userReview }) {
                 <div className="card-footer d-flex justify-content-between align-items-center">
                     Author: {name}
                     <div className="created-at">
-                        create at: {created_at}
+                        create at: {new Date(created_at).toLocaleString()}
                     </div>
                 </div>
             </div>
