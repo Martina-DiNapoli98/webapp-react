@@ -1,4 +1,4 @@
-export default funciton LoaderComponent(){
+export default function LoaderComponent() {
     return (
         <>
             <div className="d-flex justify-content-center align-items-center vh-100">

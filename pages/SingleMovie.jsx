@@ -2,10 +2,13 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import MovieReviewCard from "../Components/MovieReviewCard"
 import MovieReviewForm from "../review/MovieReviewForm"
+import GlobalContext from "../Contexts/GlobalContext"
+import { useContext } from "react"
 
 export default function SingleMovie() {
     const { id } = useParams()
     const [movie, setMovie] = useState({})
+    const { setIsLoading } = useContext(GlobalContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,6 +21,7 @@ export default function SingleMovie() {
                 }
 
                 setMovie(data)
+                setIsLoading(false)
             })
     }, [])
     return (
