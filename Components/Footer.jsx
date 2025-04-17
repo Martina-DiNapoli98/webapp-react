@@ -2,7 +2,7 @@ export default function Footer() {
     return (
 
         <>
-            <footer className="py-4 bg-light">
+            <footer className="py-4">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-4">
