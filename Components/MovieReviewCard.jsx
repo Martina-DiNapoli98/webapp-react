@@ -28,8 +28,8 @@ export default function MovieReviewCard({ userReview }) {
                         {text}
                     </p>
                 </div>
-                <div className="card-footer">
-                    {name}
+                <div className="card-footer d-flex justify-content-between align-items-center">
+                    Author: {name}
                     <div className="created-at">
                         create at: {created_at}
                     </div>

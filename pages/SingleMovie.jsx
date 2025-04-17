@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import MovieReviewCard from "../Components/MovieReviewCard"
 
 export default function SingleMovie() {
     const { id } = useParams()
     const [movie, setMovie] = useState({})
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('http://localhost:3000/api/v1/movies/' + id)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if (data?.error) {
+                    navigate('/404')
+                }
 
                 setMovie(data)
             })
@@ -36,8 +40,41 @@ export default function SingleMovie() {
             </div>
             {
                 movie?.reviews && movie.reviews.length > 0 ? (
-                    <div>
-                        <h2>
+                    <div className="container">
+                        <div className="add-review">
+                            <h3 className="mb-3">
+                                Add your review
+                            </h3>
+                            <form action="POST" className="mb-3">
+                                <div className="mb-3">
+                                    <label htmlFor="username" className="form-label">Username</label>
+                                    <input type="text" className="form-control" name="username" id="username" aria-describedby="helpId" placeholder="your name" />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="vote" className="form-label">Vote</label>
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        name="vote"
+                                        id="vote"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                        max={5}
+                                        min={1} />
+
+                                </div>
+
+                                <div className="mb-3">
+                                    <label htmlFor="review" className="form-label">Review</label>
+                                    <textarea className="form-control" rows="3" placeholder="write your review here.." name="review" id="">
+                                    </textarea>
+                                </div>
+                                <div className="mb-3">
+                                    <button type="submit" className="btn btn-primary mt-2">Submit review</button>
+                                </div>
+                            </form>
+                        </div>
+                        <h2 className="mb-3">
                             Reviews
                         </h2>
 
